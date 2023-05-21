@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Website Name - Contact</title>
+  <link rel="stylesheet" type="text/css" href="./contactstyles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="https://www.google.com/recaptcha/api.js?render=my_site_key"></script>
+  <!-- <script src="contactscript.js"></script> -->
+
+</head>
+<body>  
+  <header>
+    <nav>
+      <div class="logo">
+        <a href="index.html"><img src="./assets/logo.png" alt="Logo"></a>
+      </div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html"  class="active">Contact</a></li>
+        <li><a href="weather.html">Live Weather</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="background">
+    <div class="container">
+      <div class="screen">
+        <div class="screen-header">
+          <div class="screen-header-left">
+            <div class="screen-header-button close"></div>
+            <div class="screen-header-button maximize"></div>
+            <div class="screen-header-button minimize"></div>
+          </div>
+          <div class="screen-header-right">
+            <div class="screen-header-ellipsis"></div>
+            <div class="screen-header-ellipsis"></div>
+            <div class="screen-header-ellipsis"></div>
+          </div>
+        </div>
+        <div class="screen-body">
+          <div class="screen-body-item left">
+            <div class="app-title">
+              <span>CONTACT</span>
+              <span>US</span>
+            </div>
+            <div class="app-contact">CONTACT INFO : +91 95674 38910</div>
+          </div>
+          <div class="screen-body-item">
+
+            <form method="post" action="./server/process.php">
+              
+              <div class="app-form">
+                <div class="app-form-group">
+                  <input class="app-form-control" name="name" placeholder="NAME" value="">
+                  <span id="name-error" class="error-message"></span>
+                </div>
+                <div class="app-form-group">
+                  <input class="app-form-control" name="email" placeholder="EMAIL" >
+                  <span id="email-error" class="error-message"></span>
+                </div>
+                <div class="app-form-group">
+                  <input class="app-form-control" name="contactNo" placeholder="CONTACT NO">
+                  <span id="contactNo-error" class="error-message"></span>
+                </div>
+                <div class="app-form-group message">
+                  <input class="app-form-control" name="message" placeholder="MESSAGE"  >
+                  <span id="message-error" class="error-message"></span>
+                </div>
+            
+                <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
+            
+                <div class="app-form-group buttons">
+                  <button class="app-form-button" type="reset">CANCEL</button>
+                  <button class="app-form-button" type="submit">SEND</button>
+                </div>
+              </div>
+            </form>
+            
+            
+            
+            
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="top">
+      <div class="logo-container">
+        <div class="logo">
+          <img src="./assets/logo.png" alt="Skycast Logo" style="width: 60px; height: 60px;">
+        </div>
+        <div class="title">
+          <h1>SkyCast</h1>
+          <p>Navigate Your Day with Confidence!</p>
+        </div>
+      </div>
+      
+        <div>
+            <a href="https://www.facebook.com" target="_blank">
+            <i class="fab fa-brands fa-facebook-square"></i>
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <i class="fab fa-brands fa-instagram-square"></i>
+            </a>
+            <a href="https://www.behance.net" target="_blank">
+                <i class="fab fa-brands fa-behance-square"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank">
+                <i class="fab fa-brands fa-twitter-square"></i>
+            </a>
+        </div>
+    </div>
+    <div class="bottom">
+        <div>
+            <h4>Project</h4>
+            <a href="/">ChangeLog</a>
+            <a href="/">Status</a>
+            <a href="/">License</a>
+            <a href="/">All Versions</a>
+        </div>
+  
+        <div>
+            <h4>Community</h4>
+            <a href="/">GitHub</a>
+            <a href="/">Issues</a>
+            <a href="/">Project</a>
+            <a href="/">Twitter</a>
+        </div>
+  
+        <div>
+            <h4>Help</h4>
+            <a href="/">Support</a>
+            <a href="/">Troubleshooting</a>
+            <a href="/">Contact Us</a>
+        </div>
+  
+        <div>
+            <h4>Others</h4>
+            <a href="/">Terms of Service</a>
+            <a href="/">Privacy Policy</a>
+            <a href="/">License</a>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <p>&copy; 2023 SkyCast : Mustansir - All Rights Reserved.</p>
+    </div>
+  </div>
+
+
+  <script>
+
+    
+    // Get references to the input fields and error spans
+const nameInput = document.querySelector('input[name="name"]');
+const emailInput = document.querySelector('input[name="email"]');
+const contactNoInput = document.querySelector('input[name="contactNo"]');
+const messageInput = document.querySelector('input[name="message"]');
+
+const nameError = document.getElementById('name-error');
+const emailError = document.getElementById('email-error');
+const contactNoError = document.getElementById('contactNo-error');
+const messageError = document.getElementById('message-error');
+
+// Add event listeners to the form inputs to validate them on change or submit
+nameInput.addEventListener('input', validateName);
+emailInput.addEventListener('input', validateEmail);
+contactNoInput.addEventListener('input', validateContactNo);
+messageInput.addEventListener('input', validateMessage);
+
+
+
+
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+// Function to check if phone number is valid
+function isValidPhoneNumber(phoneNumber) {
+  const phoneRegex = /^\d{10}$/; // Assumes a 10-digit phone number
+  return phoneRegex.test(phoneNumber);
+}
+
+
+// Function to validate the name field
+function validateName() {
+  if (nameInput.value.trim() === '') {
+    nameError.textContent = 'Please enter your name.';
+  } else {
+    nameError.textContent = '';
+  }
+}
+
+// Function to validate the email field
+function validateEmail() {
+  const email = emailInput.value.trim();
+  if (email === '') {
+    emailError.textContent = 'Please enter your email address.';
+  } else if (!isValidEmail(email)) {
+    emailError.textContent = 'Please enter a valid email address.';
+  } else {
+    emailError.textContent = '';
+  }
+}
+
+// Function to validate the contact number field
+function validateContactNo() {
+  if (contactNoInput.value.trim() === '') {
+    contactNoError.textContent = 'Please enter your contact number.';
+  } 
+  else if(!isValidPhoneNumber(contactNo)){
+    contactNoError.textContent = 'Please enter a valid contact number.';
+  } else{
+    contactNoError.textContent='';
+  }
+}
+
+// Function to validate the message field
+function validateMessage() {
+  if (messageInput.value.trim() === '') {
+    messageError.textContent = 'Please enter a message.';
+    } else {
+      messageError.textContent = '';
+    }
+  }
+  
+  // Function to validate the form on submit
+  function validateForm(event) {
+    // Validate each input field
+    validateName();
+    validateEmail();
+    validateContactNo();
+    validateMessage();
+    
+    // Check if any error messages exist
+    if (
+      nameError.textContent !== '' ||
+      emailError.textContent !== '' ||
+      contactNoError.textContent !== '' ||
+      messageError.textContent !== '' ||
+      nameInput.value.trim() === '' ||
+      emailInput.value.trim() === ''
+      ) {
+      // Prevent form submission if there are errors
+      event.preventDefault();
+    }
+  }
+  
+  // Add event listener to the form submit event
+  const form = document.querySelector('form');
+  form.addEventListener('submit', validateForm);
+
+  
+  grecaptcha.ready(function() {
+    grecaptcha.execute('my_site_key', { action: 'contact' })
+      .then(function(token) {
+        document.getElementById('g-recaptcha-response').value = token;
+      });
+  });
+
+  </script>
+</body>
+</html>

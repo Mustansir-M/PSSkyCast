@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="weatherstyles.css">
+    
+</head>
+<body class="" style="background-image: url('./assets/weatherbg.jpg'); background-repeat: no-repeat; background-size: cover; width: 100vw; height: 100vh;">
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="./assets/logo.png" alt="Logo">
+      </div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="weather.html" class="active">Live Weather</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="weather-container">
+    <div class="main-container">
+    <h1 class="weather-title">Weather</h1>
+    <div class="search-container">
+      <input id="city-input" class="form-control search-input" type="text" placeholder="Search city">
+    </div>
+    <button type="button" onclick="searchCity()" class="btn search-btn">Search</button>
+    <div id="weather-details" class="details-container">
+      <div class="city-container">
+        <div class="city-name">
+          <h4 id="city-name" class="city-placeholder"></h4>
+        </div>
+        <div class="divider"></div> <!-- Add a div for the line -->
+        <div class="weather-type">
+          <h1 id="weather-type" class="weather-placeholder"></h1>
+        </div>
+      </div>
+      <div class="data-container">
+        <ul class="weather-data">
+          <li>Country: <span id="country">--</span></li>
+          <li>Humidity: <span id="humidity">--</span></li>
+          <li>Temp: <span id="temp">--</span>°F</li>
+          <li>Min Temp: <span id="min-temp">--</span>°F</li>
+          <li>Max Temp: <span id="max-temp">--</span>°F</li>
+        </ul>
+      </div>
+    </div>
+    </div>
+  </main>
+  
+  
+    <script src="weatherscript.js"></script>
+</body>
+</html>

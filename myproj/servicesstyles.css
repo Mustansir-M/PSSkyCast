@@ -1,0 +1,354 @@
+body,html{
+  /* background: rgb(87,94,105); */
+  background: linear-gradient(139deg, rgba(87,94,105,1) 0%, rgba(43,52,67,1) 100%);
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+
+header {
+    background-color: #0b121e;
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+    width: 94vw;
+    margin: 20px 20px;
+    /* background-attachment: fixed;  */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+    align-items: center;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    
+  }
+  
+  nav li {
+    margin: 0 10px;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  nav a:hover {
+    /* background-color: #555; */
+    border: 0;
+    border-radius: 15px;
+    /* box-shadow: 0 0 3px #ffe205, 0 0 7px #ffe205, 0 0 20px #edd; */
+    box-shadow: 0 0 3px #1587ce, 0 0 7px #1587ce, 0 0 20px #edd;
+    transition:ease-in-out 0.2s all;
+
+  }
+  
+  nav a.active {
+    background-color: #1587ce;
+    box-shadow: none;
+    border-radius: 15px;
+    
+  }
+  
+  .logo {
+    margin-right: auto;
+  }
+  
+  .logo img {
+    height: 50px;
+    width: auto;
+  }
+
+  .image-container {
+    position: relative;
+    width: 100%;
+    background-color: #0b121e;
+    
+  }
+
+  
+
+  
+
+  .image-container img {
+    /* width: 100%; */
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .about-container{
+    background-color:transparent;
+    position: absolute;
+    top: 0; /* Position from the top of the image container */
+    left: 0; /* Position from the left of the image container */
+    width: 100%; /* Take the full width of the image container */
+  }
+
+.about-container h1{
+  margin-top: 0px;
+  padding-top: 160px;
+  font-size: 60px;
+}
+
+.about-container .container{
+  background-color: transparent;
+  margin-top: 0;
+  padding-bottom: 30px;
+  /* height: 500px; */
+}
+
+
+  /* CAROUSEL EFFECT */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+ 
+  
+  .visuallyhidden {
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    opacity: 0;
+    
+  }
+  
+  h1 {
+    color: white;
+    text-align: center;
+    margin-top: 1em;
+  }
+  
+  .container {
+    overflow: hidden;
+    padding: 20px;
+    margin-top: 2em;
+    background: rgba(0,0,0,.1)
+  }
+  
+  .card-carousel {
+    --card-width: 90%;
+    --card-max-width: 280px;
+    --card-height: 450px;
+    --carousel-min-width: 600px;
+    z-index: 1;
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    height: var(--card-height);
+    min-width: var(--carousel-min-width);
+    transition: filter .3s ease;
+  }
+  
+  @media screen and (max-width: 640px) {
+    .card-carousel {
+      margin-left: calc((100vw - var(--carousel-min-width) - 40px) / 2)
+    }
+  }
+  
+  .card-carousel.smooth-return {
+    transition: all .2s ease;
+  }
+  
+  .card-carousel .card {
+    background: whitesmoke;
+    width: var(--card-width);
+    max-width: var(--card-max-width);
+    text-align: center;
+    padding: 1em;
+    min-width: 250px;
+    height: var(--card-height);
+    position: absolute;
+    margin: 0 auto;
+    color: rgba(0,0,0,.5);
+    transition: inherit;
+    -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);
+    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);
+    border-radius: 1em;
+    filter: brightness(.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card.highlight {
+    filter: brightness(1)
+  }
+  
+  
+  .card:nth-of-type(1) .imagee-container {
+      background-image: url("./assets/prediction.jpg");
+  }
+   
+  .card:nth-of-type(2) .imagee-container {
+    background-image: url("./assets/analysis.png")
+  }
+  
+  .card:nth-of-type(3) .imagee-container {
+    background-image: url("./assets/aiq.webp")
+  }
+  .card:nth-of-type(4) .imagee-container {
+    background-image: url("./assets/radar.png")
+  }
+
+  .card:nth-of-type(5) .imagee-container {
+    background-image: url("./assets/mobile.webp")
+  }
+  
+  
+  
+  .imagee-container {
+    width: 8em;
+    height: 8em;
+    position: relative;
+    background-size: cover;
+    margin-bottom: 2em;
+    border-radius: 100%;
+    padding: 1em;
+    -webkit-box-shadow: inset 0px 0px 17px 0px rgba(0,0,0,0.3);
+  -moz-box-shadow: inset 0px 0px 17px 0px rgba(0,0,0,0.3);
+  box-shadow: inset 0px 0px 17px 0px rgba(0,0,0,0.3);
+    
+  }
+  
+  .imagee-container::after {
+    content: "";
+    display: block;
+    width: 120%;
+    height: 120%;
+    border: solid 3px rgba(0,0,0,.1);
+    border-radius: 100%;
+    position: absolute;
+    top: calc(-10% - 3px);
+    left: calc(-10% - 3px);
+  }
+  
+  h2 {
+    padding: 1em;
+    margin-top: 1em;
+    background: rgba(0,0,0,.3);
+    text-align: center;
+    color: white;
+    border-radius: .2em;
+    display: inline-block;
+    transform: translateX(calc((100vw - 100%) / 2))
+  }
+  
+  h2 a {
+    color: #f5b916
+  }
+
+
+
+  /* FOOTER */
+  .footer{
+    padding: 3rem 4rem;
+    background-color: #0b121e ;
+    color: #fff;
+  }
+  
+  .top{
+    display: flex;
+    align-items: center;
+    text-align: start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    margin-right: 10px;
+  }
+  
+  .title {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .title h1 {
+    margin: 0;
+  }
+  
+  .title p {
+    margin: 0;
+  }
+  
+  
+  .top i{
+    color: #fff;
+    font-size: 2rem;
+    margin-left: 1rem;
+  }
+  
+  .top h1 i{
+    color:#fff;
+    padding-right: 10px;
+    margin-left: 0px;
+  }
+  
+  .top i:hover{
+    color: #01959a;
+  }
+  
+  .bottom{
+    padding-top: 2rem;
+    text-align: start;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .bottom div{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .bottom h4{
+    font-size: 1.3rem;
+    padding: 1rem 0 0.8rem 0;
+  }
+  
+  .bottom a{
+    text-decoration: none;
+    color: #fafafa;
+    padding-bottom: 0.4rem;
+    font-size: 1.1rem;
+  }
+  
+  .bottom a:hover{
+    color: #01959a;
+  }
+  
+  
+  
+  .footer-copyright p{
+    font-size: 1.1rem;
+    margin-top: 3rem;
+  }
